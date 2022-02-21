@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta id="Viewport" name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+            <title>Card</title>
+            <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+        //  function init(data) {
+        // $.ajax({
+        //     method: 'GET',
+        //     url: 'https://api-qa.ucsd.edu:8245/student/my/academic_history/v1/class_list?term_code=SP19&academic_level=UN',
+        //     beforeSend: function(request) {
+        //         request.setRequestHeader('Authorization', 'Bearer ' + data);
+        //     }
+        // }).done(function(msg) {
+        //     var source   = $("#card-template").html();
+        //     var template = Handlebars.compile(source);
+        //     $(".card").html(template(msg.data[0]));
+        // }).fail(function(jqXHR, textStatus) {
+        //     console.log(jqXHR.status);
+        // });
+        //  }
+       // var urlParams = new URLSearchParams(window.location.search);
+       
+        function getData() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var name = urlParams.get('token');
+            var affiliation = urlParams.get('affiliation');
+            var id = urlParams.get('id');
+        
+            document.getElementById("staff-name").innerHTML = name;
+            document.getElementById("staff-id").innerHTML = affiliation;
+            document.getElementById("id-num").innerHTML = id;
+            
+        }
+        console.log(urlParams.get('name'));
+        console.log(urlParams.get('affiliation'));
+        console.log(urlParams.get('id'));
+        
+        function sendHeight() {
+            var innerHeight = $("#id-card").innerHeight();
+            GetHeight.postMessage(innerHeight);
+            }
+        
+//Have staff ID
+//Make API call /staffID with params vto get the ID data
+
+ 
+
+// document.getElementById("staff-card").html = 
+                <div>$value</div>
+            </script>
+            <style>
+        #id-card {
+           display: flex;
+           margin-bottom: 1em;
+           background-color:rgb(51,51,51);
+        }
+
+        .profile-left {
+          flex: 1;
+          margin-top: 1em;
+          margin-right: 1em;
+          margin-left: 10px;
+        }
+        .profile-left img {
+           max-width: 100%;
+           height: auto;
+        }
+        .profile-left p {
+            text-align: center;
+            margin-top: 2px;
+            margin-right: 5px;
+            font-family:Roboto;
+            font-weight:330;
+            font-size:14px;
+            line-height: 19px;
+            color: white;
+        }
+        .profile-right {
+           flex: 3;
+        }
+        .profile-right p {
+            font-family: Roboto;
+            font-size: 12px;
+            font-weight: 500;
+            color: white;
+        }
+        .profile-right h2 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 20px;
+            color:white;
+            margin-bottom: -5px;
+        }
+
+ 
+
+        .right-barcode p {
+            margin-left: 55px;
+            position: relative;
+        }
+
+ 
+
+        .right-barcode svg {
+            float: left;
+            position: relative;
+            margin-top: -5px
+
+ 
+
+        }
+
+ 
+
+         script {
+             font-family: Roboto;
+         }
+
+ 
+
+       </style>
+        </head>
+        <body onload="getData(); sendHeight()">
+            <div id="id-card">
+                <div class="profile-left">
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
+                    <p id="staff-id"></p>
+                    <p>staff</p>
+                </div>
+                <div class="profile-right">
+                    <h2 id="staff-name"></h2>
+                    <h2 id="id-num"></h2>
+                    <!--<div class ="right-barcode">-->
+                    <!--    <p>(tap for easier scanning)</p>-->
+                    <!--    <svg id="barcode"></svg>-->
+                    <!--    <script>JsBarcode("#barcode", "1111111111111", {-->
+                    <!--      lineColor: "0000",-->
+                    <!--      width: 2,-->
+                    <!--      height: 35,-->
+                    <!--        marginLeft: -10,-->
+                    <!--        marginTop: -5,-->
+                    <!--    });</script>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </body>
+    </html>
